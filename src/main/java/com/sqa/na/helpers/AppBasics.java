@@ -2,35 +2,6 @@ package com.sqa.na.helpers;
 
 import java.util.*;
 
-/**
- * File Name: AppBasics.java<br>
- * Aptekman, Nina<br>
- * Java Boot Camp Exercise<br>
- * Student : Nina Aptekman<br>
- * Created: Aug 19, 2017
- */
-// Declare all static variables such as nameOfApp, userName, and scanner
-// Greet the user using a system out call
-// Ask the user for their name and store in a local scope String
-// variable
-// Ask the user for a number and store in a local scope int variable
-// Ask the user for another number and store in another local scope int
-// variable
-// Calculate the total of both numbers when adding them together and
-// store in another local scope int variable
-// Display the total of adding the numbers to the user
-// Farewell the user and exit
-/**
- * CalculatorApp //ADDD (description of class)
- * <p>
- * //ADDD (description of core fields)
- * <p>
- * //ADDD (description of core methods)
- *
- * @author Nepton, Jean-francois
- * @version 1.0.0
- * @since 1.0
- */
 public class AppBasics {
 
 	private static Scanner scanner = new Scanner(System.in);
@@ -40,6 +11,14 @@ public class AppBasics {
 		System.out.println("Have a nice day!");
 	}
 
+	/**
+	 * Generic method to greet the user and request their name. Name is being
+	 * returned to you should store it in a variable.
+	 *
+	 * @param appName
+	 *            The name of the application you created.
+	 * @return The name of the user
+	 */
 	public static String greetUserAndGetName(String appName) {
 		// Greet the user using a system out call
 		System.out.println("Welcome to the " + appName + " Application.");
@@ -49,8 +28,40 @@ public class AppBasics {
 		return scanner.nextLine();
 	}
 
+	public static boolean requestBoolean(String question) {
+		String input;
+		System.out.print(question + " (Yes/No)");
+		input = scanner.nextLine();
+		if (input.trim().equalsIgnoreCase("yes")) {
+			return true;
+		} else if (input.trim().equalsIgnoreCase("no")) {
+			return false;
+		} else {
+			System.out.println("You did not respond to the question in the correct form: (Yes/No)");
+			return false;
+		}
+	}
+
+	public static byte requestByte(String question) {
+		byte num = 0;
+		String input;
+		System.out.print(question + " ");
+		input = scanner.nextLine();
+		try {
+			num = Byte.parseByte(input);
+		} catch (NumberFormatException e) {
+			System.out.println("You did not supply a valid number [" + input + "]. please provide only digits.");
+		}
+		return num;
+	}
+
+	public static char requestChar(String question) {
+		System.out.print(question + " ");
+		return scanner.nextLine().charAt(0);
+	}
+
 	public static double requestDouble(String question) {
-		double num = 0.0;
+		double num = 0;
 		String input;
 		System.out.print(question + " ");
 		input = scanner.nextLine();
@@ -62,13 +73,52 @@ public class AppBasics {
 		return num;
 	}
 
-	public static int requestInt(String question) {
-		int num = 0; // double num = 0.0;
+	public static float requestFloat(String question) {
+		float num = 0;
 		String input;
 		System.out.print(question + " ");
 		input = scanner.nextLine();
 		try {
-			num = Integer.parseInt(input);// num = Double.parseDouble(input);
+			num = Float.parseFloat(input);
+		} catch (NumberFormatException e) {
+			System.out.println("You did not supply a valid number [" + input + "]. please provide only digits.");
+		}
+		return num;
+	}
+
+	public static int requestInt(String question) {
+		int num = 0;
+		String input;
+		System.out.print(question + " ");
+		input = scanner.nextLine();
+		try {
+			num = Integer.parseInt(input);
+		} catch (NumberFormatException e) {
+			System.out.println("You did not supply a valid number [" + input + "]. please provide only digits.");
+		}
+		return num;
+	}
+
+	public static long requestLong(String question) {
+		long num = 0;
+		String input;
+		System.out.print(question + " ");
+		input = scanner.nextLine();
+		try {
+			num = Long.parseLong(input);
+		} catch (NumberFormatException e) {
+			System.out.println("You did not supply a valid number [" + input + "]. please provide only digits.");
+		}
+		return num;
+	}
+
+	public static short requestShort(String question) {
+		short num = 0;
+		String input;
+		System.out.print(question + " ");
+		input = scanner.nextLine();
+		try {
+			num = Short.parseShort(input);
 		} catch (NumberFormatException e) {
 			System.out.println("You did not supply a valid number [" + input + "]. please provide only digits.");
 		}
