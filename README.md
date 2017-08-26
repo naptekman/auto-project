@@ -1,6 +1,6 @@
-# Basic Project
+# Auto Project
 
-*Structure for creating a Basic Java Project.*
+*Structure for creating a Auto Project.*
 
 **Java 7**
 
